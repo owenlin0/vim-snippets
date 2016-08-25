@@ -1,0 +1,95 @@
+snippet "\b(de)?f" "def <name>..." r
+def ${1:function_name}${2:(${3:*args})}
+	$0
+end
+endsnippet
+
+snippet defo "def <name>(opts = {})"
+def ${1:function_name}(opts = {})
+	default_options = {
+		$4
+	}
+
+	opts.reverse_merge!(default_options)
+	$0
+end
+endsnippet
+
+snippet begin "begin ... rescue ... end"
+begin
+	$1
+rescue
+	$0
+end
+endsnippet
+
+snippet case "case <variable> when <expression> ... end"
+case ${1:variable}
+when ${2:expression}
+$0
+end
+endsnippet
+
+snippet module "module"
+module ${1:module_name}
+	$0
+end
+endsnippet
+
+snippet nspec "new rspec file"
+require 'rspec_helper'
+
+describe ${1:ClassName} do
+	${VISUAL}$0
+end
+endsnippet
+
+snippet pry "binding.pry"
+binding.pry
+endsnippet
+
+snippet neonc "neon component"
+# encoding: utf-8
+module Neon
+	# Component class for <some reason>.
+	#
+	# Required Parameters:
+	#		$2 - <description goes here>
+	# Optional Parameters:
+	#   $4 - <description goes here>
+	class Cards::${1:ClassName} < Component
+		require_attribute(${2::attribute_name} => ${3:Type})
+		accept_attribute(${4::attribute_name} => ${5:Type})
+
+		def html
+		end
+
+		def text
+			s = ''
+			s
+		end
+
+		def self.example_data
+			{
+			}
+		end
+	end
+end
+endsnippet
+
+snippet del "deliver experiment" do
+deliver_experiment(
+	'${1:experiment_name}',
+	:${2:control} => lambda { false },
+	:${3:treatment} => lambda { true },
+	:treatment_unknown => lambda { false },
+)
+endsnippet
+
+snippet todo "todo" do
+# TODO(Owen Lin): 
+endsnippet
+
+snippet stub_exp "stub ERF experiment" do
+ERF::Client::Deliver.stub_experiment!('${1:experiment_name}', :${2:treatment})
+endsnippet

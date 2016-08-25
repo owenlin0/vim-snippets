@@ -1,0 +1,247 @@
+snippet cl "console.log" b
+console.log(${1:"${2:value}"});
+endsnippet
+
+snippet rc "React component" b
+import React, { PropTypes } from 'react';
+
+const propTypes = {
+};
+
+class ${1:ClassName} extends React.Component {
+	render() {
+		return (
+			${VISUAL}$0
+		);
+	}
+}
+
+$1.propTypes = propTypes;
+export default $1;
+endsnippet
+
+snippet rcc "React connected component" b
+import React, { PropTypes } from 'react';
+import ${2:StoreName} from '../stores/$2';
+
+const propTypes = {
+};
+
+const defaultProps = {
+};
+
+const storeConfig = {
+	getStores() {
+		return [$2];
+	},
+
+	getPropsFromStores() {
+		return $2.getState();
+	},
+};
+
+class ${1:ClassName} extends React.Component {
+	render() {
+		return (
+			${VISUAL}$0
+		);
+	}
+}
+
+$1.propTypes = propTypes;
+$1.defaultProps = defaultProps;
+export default connectToStores(storeConfig, $1);
+endsnippet
+
+snippet sfc "React stateless functional component" b
+import React, { PropTypes } from 'react';
+
+const propTypes = {
+	$2: PropTypes.string.isRequired,
+};
+
+export default function ${1:ClassName}({
+	${2:propOne},
+}) {
+	return (
+		${VISUAL}$0
+	);
+}
+
+$1.propTypes = propTypes;
+endsnippet
+
+snippet h1 "<h1>" w
+<h1>$0</h1>
+endsnippet
+
+snippet h2 "<h2>" w
+<h2>$0</h2>
+endsnippet
+
+snippet h3 "<h3>" w
+<h3>$0</h3>
+endsnippet
+
+snippet h4 "<h4>" w
+<h4>$0</h4>
+endsnippet
+
+snippet h5 "<h5>" w
+<h5>$0</h5>
+endsnippet
+
+snippet h6 "<h6>" w
+<h6>$0</h6>
+endsnippet
+
+snippet mailto "XHTML <a mailto: >" w
+<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
+endsnippet
+
+snippet body "<body>"
+<body>
+	$0
+</body>
+endsnippet
+
+snippet div "<div>" w
+<div>
+	$0
+</div>
+endsnippet
+
+snippet div. "<div> with className" w
+<div`!p snip.rv=' className="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
+	$0
+</div>
+endsnippet
+
+snippet div# "<div> with ID & className" w
+<div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' className="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+	$0
+</div>
+endsnippet
+
+snippet a "link" w
+<a href="${1:http://www.${2:url.com}}"${3: target="_blank"}>
+	${4:Anchor Text}
+</a>
+endsnippet
+
+snippet p "paragraph" w
+<p>
+	$0
+</p>
+endsnippet
+
+snippet li "list item" w
+<li>
+	$0
+</li>
+endsnippet
+
+snippet ul "unordered list" w
+<ul>
+	$0
+</ul>
+endsnippet
+
+snippet td "table cell" w
+<td>$0</td>
+endsnippet
+
+snippet th "table header" w
+<th>$0</th>
+endsnippet
+
+snippet tr "table row" w
+<tr>$0</tr>
+endsnippet
+
+snippet title "XHTML <title>" w
+<title>${1:`!p snip.rv = snip.basename or "Page Title"`}</title>
+endsnippet
+
+snippet cx
+cx({
+	'${1:class-name}': ${2:true}
+});
+endsnippet
+
+snippet T
+<T k=${VISUAL}"$0" />
+endsnippet
+
+snippet del
+ERF.deliverExperiment('${1:experiment_name}', {
+	${2:control}: () => false,
+	${2:treatment}: () => true,
+	treatment_unknown: () => false,
+});
+endsnippet
+
+snippet todo "todo" do
+// TODO(Owen Lin): 
+endsnippet
+
+snippet pry "debugger" do
+debugger;
+endsnippet
+
+# imports --------------------------------------------------------------- 
+snippet imB
+import Button from 'airbnb-o2/components/Button';
+endsnippet
+
+snippet imL
+import Link from 'airbnb-o2/components/Link';
+endsnippet
+
+# --- temporary
+snippet iml
+import Luigi from './Luigi';
+endsnippet
+
+snippet ma
+marioConfig={this.props.mario_config}
+endsnippet
+
+snippet mar
+marioConfig={this.props.marioConfig}
+endsnippet
+
+snippet pmar
+marioConfig: React.PropTypes.object.isRequired,
+endsnippet
+# ---
+
+snippet imT
+import T from 'airbnb-i18n/T';
+endsnippet
+
+snippet imI18n
+import I18n from 'airbnb-i18n';
+endsnippet
+
+snippet im$
+import $ from 'jquery';
+endsnippet
+
+snippet imcx
+import cx from 'classnames';
+endsnippet
+
+snippet imM
+import { matchMedia } from 'airbnb-o2';
+endsnippet
+
+snippet imERF
+import ERF from 'airbnb-erf';
+endsnippet
+
+snippet imTreb
+import Trebuchet from '../../trebuchet';
+endsnippet
+
+# ----------------------------------------------------------------------- 
